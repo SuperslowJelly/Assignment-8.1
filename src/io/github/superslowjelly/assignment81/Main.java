@@ -85,12 +85,12 @@ public class Main {
         int nameLength = longestName(studentGrades);
         StringBuilder paddingBuilder = new StringBuilder();
         for (int i = 0; i < nameLength + 3; i++) paddingBuilder.append("─");
-        String namePadding = paddingBuilder.toString(), scorePadding = "────────", gradePadding = "───────";
+        String namePadding = paddingBuilder.toString(), scorePadding = "─────────", gradePadding = "───────";
         StringBuilder output = new StringBuilder("┌").append(namePadding).append("┬").append(scorePadding).append("┬").append(gradePadding).append("┐\n")
-                .append("│ ").append(String.format("%-" + (nameLength + 1) + "s", "Name")).append(" │ Score  │ Grade │\n")
+                .append("│ ").append(String.format("%-" + (nameLength + 1) + "s", "Name")).append(" │ Score   │ Grade │\n")
                 .append("├").append(namePadding).append("┼").append(scorePadding).append("┼").append(gradePadding).append("┤\n");
         for (Map.Entry<String, Double> entry : studentGrades.entrySet())
-            output.append("│ ").append(String.format("%-" + (nameLength + 1) + "s", entry.getKey())).append(" │ ").append(String.format("%-6s", entry.getValue())).append(" │ ").append(String.format("%-5s", getLetterGrade(entry.getValue()))).append(" │\n");
+            output.append("│ ").append(String.format("%-" + (nameLength + 1) + "s", entry.getKey())).append(" │ ").append(String.format("%-7s", entry.getValue() + "%")).append(" │ ").append(String.format("%-5s", getLetterGrade(entry.getValue()))).append(" │\n");
         output.append("└").append(namePadding).append("┴").append(scorePadding).append("┴").append(gradePadding).append("┘");
 
         System.out.print(output);
